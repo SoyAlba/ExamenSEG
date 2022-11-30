@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ <!-- add coche base form -->
+    <record id="view_coche_base_form" model="ir.ui.view">
+    <field name="name">coche.base.form</field>
+    <field name="model">coche.base</field>
+    <field name="arch" type="xml">
+        <form string="Coche Base">
+        <sheet>
+            <group>
+            <field name="name"/>
+            <field name="description"/>
+            </group>
+        </sheet>
+        </form>
+    </field>
+    </record>
+ <!-- add coche  form -->
+    <record id="view_coche_form" model="ir.ui.view">
+    <field name="name">coche.form</field>
+    <field name="model">coche</field>
+    <field name="inherit_id" ref="view_coche_base_form"/>
+    <field name="arch" type="xml">
+        <field name="description" position="after">
+        <field name="color"/>
+        <field name="marca"/>
+        <field name="modelo"/>
+        <field name="matricula"/>
+        <field name="precio"/>
+        </field>
+    </field>
+    </record>
+<!-- add  conductor  form -->
+    <record id="view_conductor_form" model="ir.ui.view">
+    <field name="name">conductor.form</field>
+    <field name="model">conductor</field>
+    <field name="inherit_id" ref="view_coche_base_form"/>
+    <field name="arch" type="xml">
+        <field name="description" position="after">
+        <field name="nombre"/>
+        <field name="dni"/>
+        </field>
+    </field>
+    </record>
+
+<!-- add seguro  form -->
+    <record id="view_seguro_form" model="ir.ui.view">
+    <field name="name">seguro.form</field>
+    <field name="model">seguro</field>
+    <field name="inherit_id" ref="view_coche_base_form"/>
+    <field name="arch" type="xml">
+        <field name="description" position="after">
+        <field name="compania"/>
+        <field name="fecha_vencimiento"/>
+        </field>
+    </field>
+    </record>
+<!-- add viaje  form -->
+    <record id="view_viaje_form" model="ir.ui.view">
+    <field name="name">viaje.form</field>
+    <field name="model">viaje</field>
+    <field name="inherit_id" ref="view_coche_base_form"/>
+    <field name="arch" type="xml">
+        <field name="description" position="after">
+        <field name="coche_id"/>
+        <field name="origen"/>
+        <field name="destino"/>
+        <field name="fecha"/>
+        <field name="duracion"/>
+        <field name="seguro_caducado"/>
+        </field>
+    </field>
+    </record>
+
+<!-- add provincia  form -->
+
+    <record id="view_provincia_form" model="ir.ui.view">
+    <field name="name">provincia.form</field>
+    <field name="model">coche.provincia</field>
+    <field name="arch" type="xml">
+        <form string="Provincia">
+        <sheet>
+            <group>
+            <field name="name"/>
+            </group>
+        </sheet>
+        </form>
+    </field>
+    </record>
+</odoo>

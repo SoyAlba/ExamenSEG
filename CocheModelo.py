@@ -1,13 +1,12 @@
 from odoo import models, fields
 
-
 class Base(models.Model):
     _name = 'coche.base'
     _description = 'Base class to be inherited'
 
     name = fields.Char(string='Nombre', required=True)
     description = fields.Text(string='Descripción')
-    
+
     _sql_constraints = [
         ('name_unique',
          'UNIQUE(name)',
